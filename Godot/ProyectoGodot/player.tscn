@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://s31lqutypmnm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ngr2r"]
+[ext_resource type="PackedScene" uid="uid://bp1vqx8oospnt" path="res://player/player_animation.tscn" id="2_aiikb"]
+[ext_resource type="Texture2D" uid="uid://bubdqtc7yvrhw" path="res://GFX/Background/bg_layer1.png" id="3_bdj38"]
+[ext_resource type="Texture2D" uid="uid://2sabwex7knjc" path="res://GFX/Background/bg_layer2.png" id="4_5jl58"]
+[ext_resource type="Texture2D" uid="uid://dkwbdbpkiel54" path="res://GFX/Background/bg_layer3.png" id="5_w65o5"]
+[ext_resource type="Texture2D" uid="uid://blvsyi82kxrod" path="res://GFX/Background/bg_layer4.png" id="6_6ncbc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4e726"]
+radius = 62.0001
+height = 174.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(1416, 296)
+collision_mask = 6
+floor_stop_on_slope = false
+script = ExtResource("1_ngr2r")
+metadata/_edit_group_ = true
+
+[node name="PlayerAnimation" parent="." instance=ExtResource("2_aiikb")]
+position = Vector2(233, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 6
+position = Vector2(295, 270)
+shape = SubResource("CapsuleShape2D_4e726")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(381, 256)
+scale = Vector2(1.51963, -0.559041)
+zoom = Vector2(0.4, 0.4)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+scroll_base_offset = Vector2(0, -1000)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.25, 1)
+motion_offset = Vector2(0, -750)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+offset_left = -103.0
+offset_top = -15.0
+offset_right = 1945.01
+offset_bottom = 2033.0
+scale = Vector2(1.54681, 2.1066)
+texture = ExtResource("3_bdj38")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_offset = Vector2(0, -750)
+motion_mirroring = Vector2(2048, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+offset_left = -86.0
+offset_top = 44.0
+offset_right = 2469.0
+offset_bottom = 2092.0
+scale = Vector2(1.17379, 0.57031)
+texture = ExtResource("4_5jl58")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2(0.75, 1)
+motion_offset = Vector2(0, -750)
+motion_mirroring = Vector2(2048, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer3"]
+offset_left = -102.0
+offset_top = 381.0
+offset_right = 2453.0
+offset_bottom = 2429.0
+scale = Vector2(1.20143, 0.46557)
+texture = ExtResource("5_w65o5")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_mirroring = Vector2(2048, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ParallaxBackground/ParallaxLayer4"]
+offset_left = -112.0
+offset_top = 67.0
+offset_right = 2443.0
+offset_bottom = 2115.0
+scale = Vector2(1.23492, 0.772937)
+texture = ExtResource("6_6ncbc")
+
+[connection signal="animates" from="." to="PlayerAnimation" method="_on_player_animates"]

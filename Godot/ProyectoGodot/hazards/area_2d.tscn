@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://smhx3ehaev6k"]
+
+[ext_resource type="Script" path="res://hazards/hazards.gd" id="1_or4m5"]
+[ext_resource type="Texture2D" uid="uid://15s28p66vi6t" path="res://GFX/Environment/spikes_top.png" id="1_u7xm0"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_or4m5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.545098, 0, 0, 1)
+texture = ExtResource("1_u7xm0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-45, 26, -45, 24, -32, -26, -28, -26, -15, 20, -3, -25, 2, -26, 15, 18, 27, -27, 32, -27, 46, 26)
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
