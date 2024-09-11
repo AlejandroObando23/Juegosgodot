@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs62grt84sd0w"]
+
+[ext_resource type="Script" path="res://gui/bugs_counter.gd" id="1_urggy"]
+[ext_resource type="Texture2D" uid="uid://cwsjvkl3li6bg" path="res://level/Bugs-removebg-preview.png" id="2_xk32p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_va3be"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xk32p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bugs_counter" type="Panel"]
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 61.0
+offset_bottom = 50.0
+scale = Vector2(3.91965, 1.04592)
+script = ExtResource("1_urggy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.92937, 19.1219)
+scale = Vector2(0.0544885, 0.215881)
+sprite_frames = SubResource("SpriteFrames_va3be")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.1549
+offset_top = -3.82439
+offset_right = 16.1549
+offset_bottom = 18.1756
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.459211, 0.75419)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1

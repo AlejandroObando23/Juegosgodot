@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsyqg6eh3wl5i"]
+
+[ext_resource type="Theme" uid="uid://da4noqsij73it" path="res://gui/theme.tres" id="1_mctnl"]
+[ext_resource type="Script" path="res://gui/coins_counter.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://coqyu6w6prv7c" path="res://level/codigo.png" id="3_mjbu2"]
+
+[sub_resource type="SpriteFrames" id="6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mjbu2")
+}],
+"loop": true,
+"name": &"coin_spinning",
+"speed": 12.0
+}]
+
+[node name="CoinsCounter" type="Panel"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 100.0
+offset_bottom = 45.0
+theme = ExtResource("1_mctnl")
+script = ExtResource("3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -3.0
+offset_right = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.187676, 0.288788, 0.318334, 1)
+self_modulate = Color(0.44012, 0.223417, 0.318161, 1)
+position = Vector2(24, 20)
+scale = Vector2(0.0279223, -0.0530618)
+sprite_frames = SubResource("6")
+animation = &"coin_spinning"

@@ -1,0 +1,13 @@
+res://level/level.tscn
+res://level/tileset.tres
+res://level/props/wind_sway.tres
+res://gui/theme.tres
+res://game_singleplayer.tscn
+res://gui/pause_menu_singleplayer.tscn
+res://gui/coins_counter.tscn
+res://player/player.tscn
+res://level/coin.tscn
+res://level/bug.tscn
+res://gui/bugs_counter.tscn
+res://gui/pause_menu.tscn
+res://gui/pause_menu_splitscreen.tscn
